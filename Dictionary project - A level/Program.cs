@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dictionary_project___A_level
 {
@@ -29,6 +25,16 @@ namespace Dictionary_project___A_level
 		public static bool CheckEntry(string key)
 		{
 			return HouseAddressPeopleNumberDic.ContainsKey(key);
+		}
+
+		public static string IterateDictionary()
+		{
+			string output = "";
+			foreach(KeyValuePair<string, int> entry in HouseAddressPeopleNumberDic)
+			{
+				output += $"address: {{{entry.Key}}} | amount of people: {{{entry.Value}}}\n";
+			}
+			return output;
 		}
 	}
 
@@ -72,7 +78,6 @@ namespace Dictionary_project___A_level
 							break;
 						}
 						
-
 					case 'g':
 						{
 							Console.Write("Please input an address of the house (key): ");
@@ -83,8 +88,7 @@ namespace Dictionary_project___A_level
 
 					case 'i':
 						{
-
-
+							Console.Write(HousePeopleManage.IterateDictionary());
 							break;
 						}
 
